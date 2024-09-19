@@ -2,9 +2,9 @@ var scriptSet = PropertiesService.getScriptProperties();
 
 //HUBUNGKAN DENGAN TELEGRAM DAN GOOGLE SHEET
 var token = '*****'; // Isi dengan token bot Telegram
-var sheetID = '******'; // Isi dengan SheetID Google Sheet
-var sheetName = '****'; // Isi dengan nama Sheet
-var webAppURL = '********'; // Isi dengan Web URL Google Script setelah deploy
+var sheetID = '*****'; // Isi dengan SheetID Google Sheet
+var sheetName = '***'; // Isi dengan nama Sheet
+var webAppURL = '******'; // Isi dengan Web URL Google Script setelah deploy
 
 //SETTING DATA APA SAJA YANG AKAN DIINPUT
 var dataInput = /\/SSID: (.*)\n\nNAMA: (.*)/gmi;
