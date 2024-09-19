@@ -7,7 +7,7 @@ var sheetName = "*****"; // Isi dengan nama Sheet
 var webAppURL = "*****"; // Isi dengan Web URL Google Script setelah deploy
 
 //SETTING DATA APA SAJA YANG AKAN DIINPUT
-var dataInput = /\/DATA1: (.*)\n\nDATA2: (.*)/gim;
+var dataInput = /\/SSID: (.*)\n\nNAMA: (.*)/gim;
 var validasiData = /:\s{0,1}(.*)/gi;
 
 //PESAN JIKA FORMAT DATA YANG DIKIRIM SALAH
@@ -29,17 +29,15 @@ function breakData(update) {
     for (var i = 0; i < match.length; i++) {
       match[i] = match[i].replace(":", "").trim();
     }
-    ret = "DATA1" + match[0] + "\n\n";
-    ret += "DATA2" + match[1] + "\n\n";
+    ret = "SSID" + match[0] + "\n\n";
+    ret += "NAMA" + match[1] + "\n\n";
     ret = `Data (${match[0]}) Berhasil Saya Simpan, Terima kasih!`;
 
     var simpan = match;
 
-    var nama = msg.from.first_name;
-    if (msg.from.last_name) {
-      nama += " " + msg.from.last_name;
-    }
-    simpan.unshift(nama);
+    var sheet = SpreadsheetApp.openById(sheetID).getSheetByName(sheetName);
+    var lastRow = sheet.getLastRow() -1 + 1; 
+    match.unshift(lastRow);
 
     tulis(simpan);
   }
@@ -81,10 +79,6 @@ function doPost(e) {
 
     bus.on(/\/format/i, function () {
       this.replyToSender("<b>/SSID:</b>\n<b>NAMA:</b>");
-    });
-
-    bus.on(/\/Dapa/i, function () {
-      this.replyToSender("<b>Dapa suka kucing,furry,MotherBot</b>");
     });
 
     // Menambahkan command /cari untuk mencari SSID
