@@ -31,12 +31,12 @@ function breakData(update) {
     }
     ret = "SSID" + match[0] + "\n\n";
     ret += "NAMA" + match[1] + "\n\n";
-    ret = `Data (${match[0]}) Berhasil Saya Simpan, Terima kasih!`;
+    ret = `Data (${match[0]}) Berhasil Tersimpan, Terima kasih!`;
 
     var simpan = match;
 
     var sheet = SpreadsheetApp.openById(sheetID).getSheetByName(sheetName);
-    var lastRow = sheet.getLastRow() -1 + 1; 
+    var lastRow = sheet.getLastRow() -1 + 1; // Memberikan nomor urut diawal penginputan
     match.unshift(lastRow);
 
     tulis(simpan);
