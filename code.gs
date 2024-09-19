@@ -14,14 +14,9 @@ var validasiData = /:\s{0,1}(.*)/ig;
 var errorMessage = "Format Salah!";
 
 function tulis(dataInput) {
-  var sheet = SpreadsheetApp.openById(sheetID).getSheetByName(sheetName);
-  var lastRow = sheet.getLastRow() + 1; // Mendapatkan baris terakhir + 1 untuk input baru
-  
-  // SSID akan disimpan di kolom B, Nama di kolom C
-  sheet.getRange(lastRow, 2).setValue(dataInput[0]); // Kolom B untuk SSID
-  sheet.getRange(lastRow, 3).setValue(dataInput[1]); // Kolom C untuk Nama
+  var sheet1 = SpreadsheetApp.openById(sheetID).getSheetByName(sheetName);
+  sheet1.appendRow(dataInput);
 }
-
 
 function breakData(update) {
   var ret = errorMessage;
