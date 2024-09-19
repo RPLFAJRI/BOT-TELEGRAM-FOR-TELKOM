@@ -40,11 +40,9 @@ function breakData(update) {
 
     var simpan = match;
 
-    // var nama = msg.from.first_name;
-    // if (msg.from.last_name) {
-    //   nama += " " + msg.from.last_name;
-    // }
-    // simpan.unshift(nama);
+    var sheet = SpreadsheetApp.openById(sheetID).getSheetByName(sheetName);
+    var lastRow = sheet.getLastRow() -1 + 1; 
+    match.unshift(lastRow);
 
     tulis(simpan);
   }
