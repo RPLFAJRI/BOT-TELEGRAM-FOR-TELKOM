@@ -68,7 +68,7 @@ function doPost(e) {
     var bus = new CommandBus();
     
     bus.on(/\/help/i, function() {
-      this.replyToSender("<b>/format -> Menampilkan Format</b>\n <b>/cari -> Mencari Data (/cari 222->SSID)</b>\n /Dapa -> Easter Egg");
+      this.replyToSender("<b>/format -> Menampilkan Format</b>\n <b>/cari -> Mencari Data (/cari 222->SSID)");
     });
 
     bus.on(/\/test/i, function() {
@@ -77,10 +77,6 @@ function doPost(e) {
 
     bus.on(/\/format/i, function() {
       this.replyToSender("<b>/SSID:</b>\n<b>NAMA:</b>");
-    });
-
-    bus.on(/\/Dapa/i, function() {
-      this.replyToSender("<b>Dapa suka kucing,furry,MotherBot</b>");
     });
 
     // Menambahkan command /cari untuk mencari SSID
