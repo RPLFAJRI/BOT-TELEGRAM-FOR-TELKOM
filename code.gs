@@ -68,7 +68,7 @@ function doPost(e) {
     var bus = new CommandBus();
     
     bus.on(/\/help/i, function() {
-      this.replyToSender("<b>/format -> Menampilkan Format</b>\n <b>/cari -> Mencari Data (/cari 222->SSID)");
+      this.replyToSender("<b>/format -> Menampilkan Format</b>\n <b>/cari -> Mencari Data (/cari 222->SSID)</b>");
     });
 
     bus.on(/\/test/i, function() {
